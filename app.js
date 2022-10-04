@@ -35,23 +35,39 @@ calculateBtn.addEventListener('click', () => {
     
     //Taking Savings percent (%)
     let savingInput = getInput('savings-input')
-    //calling CalcSaving funtion to do the operation to get the savings amount
-    let savingAmount = CalcSaving(savingInput,incomeAmount);
     
-    //Calculating Total Expense
-    let totalExpenseAmount = foodAmount + rentAmount + othersAmount;
-            
-    // Replacing Expense Amount to HTML
-    totalExpenseBlock.innerText = totalExpenseAmount;
+    //Condition to check if user give all input with positive value
+    if(incomeAmount && foodAmount && rentAmount && othersAmount && savingInput > 0){
+        //calling CalcSaving funtion to Calculating savings amount
+        let savingAmount = CalcSaving(savingInput,incomeAmount);
+    
+        //Calculating Total Expense
+        let totalExpenseAmount = foodAmount + rentAmount + othersAmount;
 
-    //Replacing Savings Amount To HTML
-    saveAmountBlock.innerText = savingAmount;
+        //Calculating Remaining Available Amount After Expense and savings
+        let RemainingAvlAmount = incomeAmount - (totalExpenseAmount+savingAmount);
+                
+        // Replacing Expense Amount to HTML
+        totalExpenseBlock.innerText = totalExpenseAmount;
 
-    //Calculating Remaining Available Amount After Expense and savings
-    let RemainingAvlAmount = incomeAmount - (totalExpenseAmount+savingAmount);
+        //Replacing Savings Amount To HTML
+        saveAmountBlock.innerText = savingAmount;
 
-    //Replacing Remaining avl Amount to HTML 
-    remainingAmountBlock.innerText = RemainingAvlAmount;
+        //Replacing Remaining avl Amount to HTML 
+        remainingAmountBlock.innerText = RemainingAvlAmount;
+
+        //Condition if expense is bigger than income
+        if(totalExpenseAmount > incomeAmount){
+        alert("Your Expenses is more than your income! you will get negativ value")
+        }
+        //Condition if  user has not enough money to save!
+        if((incomeAmount-totalExpenseAmount) < savingAmount ){
+        alert("Not enough money to save!")
+        }
+    }else {
+        alert("Fill up all filled with valid input!")
+    }
+    
 })
 
 //Event Handler to Clear all the field and amount blocks
