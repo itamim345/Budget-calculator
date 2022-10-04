@@ -10,31 +10,31 @@
 </head>
 <body>
     <section class="text-gray-600 body-font">
-        <h2 class="sm:text-3xl text-2xl text-purple-900 font-medium title-font mt-6 text-center underline">Budget Calculator</h2>
-        <div class="container px-5 py-8 mx-auto flex flex-wrap items-center">
+        <h2 class="sm:text-3xl text-4xl text-purple-900 font-medium title-font mt-6 text-center underline">Budget Calculator</h2>
+        <div class="container px-5 py-8 mx-auto flex flex-col md:flex-row items-center">
             <!------------ Left-Area ----------->
-          <div class="mb-2 w-2/6">
+          <div class="mb-2 w-full md:w-2/6">
             <img src="img/img1.png" alt="">
           </div>
           <!------------ Mid-Area ----------->
-          <div class="w-2/6 mb-2">
+          <div class="w-full md:w-2/6 mb-2">
             <h3 class="text-2xl sm:text-lg my-2 text-red-500">Income:-</h3>
-            <input type="text" name="income" id="income" placeholder="Enter Total Income" class="w-5/6 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:ring-2 focus:bg-transparent focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            <input type="text" name="income" id="income" placeholder="Enter Total Income" class="w-full md:w-5/6 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:ring-2 focus:bg-transparent focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             <h3 class="text-2xl sm:text-lg my-2 text-red-500">Expenses:-</h3>
             <div class="mb-3">
-                <input type="text" name="food" id="food" placeholder="Enter Food Expense" class="w-5/6 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:ring-2 focus:bg-transparent focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                <input type="text" name="food" id="food" placeholder="Enter Food Expense" class="w-full md:w-5/6 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:ring-2 focus:bg-transparent focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
             <div class="mb-3">
-                <input type="text" name="Rent" id="rent" placeholder="Enter Rent Expense" class="w-5/6 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:ring-2 focus:bg-transparent focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                <input type="text" name="Rent" id="rent" placeholder="Enter Rent Expense" class="w-full md:w-5/6 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:ring-2 focus:bg-transparent focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
             <div class="mb-3">
-                <input type="text" name="others" id="others" placeholder="Enter Others Expense" class="w-5/6 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:ring-2 focus:bg-transparent focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                <input type="text" name="others" id="others" placeholder="Enter Others Expense" class="w-full md:w-5/6 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:ring-2 focus:bg-transparent focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             </div>
           </div>
           <!-------- right-area --------->
-          <div class="right-area w-2/6">    
+          <div class="right-area w-full md:w-2/6">    
             <h3 class="text-2xl sm:text-xl my-2 text-red-500">Amount (%) For Savings:-</h3>
-            <input type="text" name="others" id="savings-input" placeholder="Enter % that you want to save" class="w-5/6 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:ring-2 focus:bg-transparent focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+            <input type="text" name="others" id="savings-input" placeholder="Enter % that you want to save" class="w-full md:w-5/6 bg-gray-100 bg-opacity-50 rounded border border-gray-300 focus:ring-2 focus:bg-transparent focus:ring-indigo-200 focus:border-indigo-500 text-base outline-none text-gray-700 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
             <button class="inline-flex text-white bg-indigo-500 border-0 py-2 px-5 my-3 focus:outline-none hover:bg-indigo-600 rounded" id="calculate">Calculate</button>
             <button class="inline-flex text-white bg-red-600 border-0 py-2 px-5 my-3 focus:outline-none hover:bg-red-700 rounded" id="clear">Clear</button>
             <hr>
