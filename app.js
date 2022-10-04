@@ -8,6 +8,7 @@ let savingInputField = document.getElementById('savings-input');
 let totalExpenseBlock = document.getElementById('total-expense');
 let saveAmountBlock = document.getElementById('save-amount');
 let remainingAmountBlock = document.getElementById('remaining-amount');
+let clearBtn = document.getElementById('clear');
 
 //Funtion to get Input Value
 function getInput(inputId){
@@ -51,5 +52,19 @@ calculateBtn.addEventListener('click', () => {
 
     //Replacing Remaining avl Amount to HTML 
     remainingAmountBlock.innerText = RemainingAvlAmount;
+})
+
+//Event Handler to Clear all the field and amount blocks
+clearBtn.addEventListener('click', () => {
+    //clearing all the field
+    incomeField.value = "";
+    foodField.value = "";
+    rentField.value = "";
+    othersField.value = "";
+    savingInputField.value = "";
+    // clearing all the amount block
+    totalExpenseBlock.innerText = "000";
+    saveAmountBlock.innerText = "000";
+    remainingAmountBlock.innerText = "000";
 })
 
