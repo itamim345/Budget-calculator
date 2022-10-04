@@ -4,59 +4,52 @@ let foodField = document.getElementById('food');
 let rentField = document.getElementById('rent');
 let othersField = document.getElementById('others');
 let calculateBtn = document.getElementById('calculate');
-let totalExpenseBlock = document.getElementById('total-expense');
-let avlAmountBlock = document.getElementById('avl-amount');
 let savingInputField = document.getElementById('savings-input');
-let saveBtn = document.getElementById('save-btn');
+let totalExpenseBlock = document.getElementById('total-expense');
 let saveAmountBlock = document.getElementById('save-amount');
 let remainingAmountBlock = document.getElementById('remaining-amount');
+
+//Funtion to get Input Value
+function getInput(inputId){
+    let inputText = document.getElementById(inputId).value;
+    let inputAmount = parseFloat(inputText);
+    return inputAmount;
+}
 
 //Function to calculate Savings
 function CalcSaving(userInput,totalIncome){
     return (userInput*totalIncome)/100
 }
+
 //Event Handler for Calculate Button
 calculateBtn.addEventListener('click', () => {
     //taking user Income
-    let incomeText = incomeField.value;
-    let incomeAmount = parseFloat(incomeText);
+    let incomeAmount = getInput('income');
     // Taking Expenses
-    let foodText = foodField.value;
-    let foodAmount = parseFloat(foodText);
+    let foodAmount = getInput('food')
 
-    let rentText = rentField.value;
-    let rentAmount = parseFloat(rentText);
+    let rentAmount = getInput('rent')
 
-    let ohtersText = othersField.value;
-    let othersAmount = parseFloat(ohtersText);
-
+    let othersAmount = getInput('others')
+    
+    //Taking Savings percent (%)
+    let savingInput = getInput('savings-input')
+    //calling CalcSaving funtion to do the operation to get the savings amount
+    let savingAmount = CalcSaving(savingInput,incomeAmount);
+    
     //Calculating Total Expense
     let totalExpenseAmount = foodAmount + rentAmount + othersAmount;
-    
+            
     // Replacing Expense Amount to HTML
     totalExpenseBlock.innerText = totalExpenseAmount;
-
-    //Calculating Available Amount After Expense
-    let avlAmount = incomeAmount - totalExpenseAmount;
-
-    //Replacing Avl amount to HTML
-    avlAmountBlock.innerText = avlAmount;
-
-
-    //Event Handler to get Saving Amount
-saveBtn.addEventListener('click', () => {
-    let savingsInputText = savingInputField.value;
-    let savingInput = parseFloat(savingsInputText);
-    //calling CalcSaving funtion to do the operation
-    let savingAmount = CalcSaving(savingInput,incomeAmount);
 
     //Replacing Savings Amount To HTML
     saveAmountBlock.innerText = savingAmount;
 
-    //Calculating Remaining Avl Amount
-    let RemainingAvlAmount = avlAmount - savingAmount;
+    //Calculating Remaining Available Amount After Expense and savings
+    let RemainingAvlAmount = incomeAmount - (totalExpenseAmount+savingAmount);
 
     //Replacing Remaining avl Amount to HTML 
     remainingAmountBlock.innerText = RemainingAvlAmount;
 })
-})
+
