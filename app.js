@@ -11,7 +11,11 @@ let saveBtn = document.getElementById('save-btn');
 let saveAmountBlock = document.getElementById('save-amount');
 let remainingAmountBlock = document.getElementById('remaining-amount');
 
-//Event Handler
+//Function to calculate Savings
+function CalcSaving(userInput,totalIncome){
+    return (userInput*totalIncome)/100
+}
+//Event Handler for Calculate Button
 calculateBtn.addEventListener('click', () => {
     //taking user Income
     let incomeText = incomeField.value;
