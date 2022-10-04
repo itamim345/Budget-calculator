@@ -42,3 +42,17 @@ calculateBtn.addEventListener('click', () => {
     //Replacing Avl amount to HTML
     avlAmountBlock.innerText = avlAmount;
 })
+
+//Event Handler to get Saving Amount
+saveBtn.addEventListener('click', () => {
+    let savingsInputText = savingInputField.value;
+    let savingInput = parseFloat(savingsInputText);
+
+    let totalIncomeText = incomeField.value;
+    let totalIncomeAmount = parseFloat(totalIncomeText);
+
+    let savingAmount = CalcSaving(savingInput,totalIncomeAmount);
+
+    //Replacing Savings Amoutn To HTML
+    saveAmountBlock.innerText = savingAmount;
+})
