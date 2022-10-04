@@ -4,8 +4,8 @@ let foodField = document.getElementById('food');
 let rentField = document.getElementById('rent');
 let othersField = document.getElementById('others');
 let calculateBtn = document.getElementById('calculate');
-let totalExpenseField = document.getElementById('total-expense');
-let avlAmountField = document.getElementById('avl-amount');
+let totalExpenseBlock = document.getElementById('total-expense');
+let avlAmountBlock = document.getElementById('avl-amount');
 let savingInputField = document.getElementById('savings-input');
 let saveBtn = document.getElementById('save-btn');
 let saveAmountBlock = document.getElementById('save-amount');
@@ -30,6 +30,11 @@ calculateBtn.addEventListener('click', () => {
     let totalExpenseAmount = foodAmount + rentAmount + othersAmount;
     
     // Replacing Expense Amount to HTML
-    totalExpenseField.innerHTML = totalExpenseAmount;
+    totalExpenseBlock.innerText = totalExpenseAmount;
 
+    //Calculating Available Amount After Expense
+    let avlAmount = incomeAmount - totalExpenseAmount;
+
+    //Replacing Avl amount to HTML
+    avlAmountBlock.innerText = avlAmount;
 })
