@@ -35,34 +35,35 @@ calculateBtn.addEventListener('click', () => {
     
     //Taking Savings percent (%)
     let savingInput = getInput('savings-input')
+
+    //calling CalcSaving funtion to Calculating savings amount
+    let savingAmount = CalcSaving(savingInput,incomeAmount);
+    
+    //Calculating Total Expense
+    let totalExpenseAmount = foodAmount + rentAmount + othersAmount;
+
+    //Calculating Remaining Available Amount After Expense and savings
+    let RemainingAvlAmount = incomeAmount - (totalExpenseAmount+savingAmount);
     
     //Condition to check if user give all input with positive value
     if(incomeAmount && foodAmount && rentAmount && othersAmount && savingInput > 0){
-        //calling CalcSaving funtion to Calculating savings amount
-        let savingAmount = CalcSaving(savingInput,incomeAmount);
-    
-        //Calculating Total Expense
-        let totalExpenseAmount = foodAmount + rentAmount + othersAmount;
-
-        //Calculating Remaining Available Amount After Expense and savings
-        let RemainingAvlAmount = incomeAmount - (totalExpenseAmount+savingAmount);
-                
-        // Replacing Expense Amount to HTML
-        totalExpenseBlock.innerText = totalExpenseAmount;
-
-        //Replacing Savings Amount To HTML
-        saveAmountBlock.innerText = savingAmount;
-
-        //Replacing Remaining avl Amount to HTML 
-        remainingAmountBlock.innerText = RemainingAvlAmount;
-
         //Condition if expense is bigger than income
-        if(totalExpenseAmount > incomeAmount){
-        alert("Your Expenses is more than your income! you will get negativ value")
-        }
-        //Condition if  user has not enough money to save!
-        if((incomeAmount-totalExpenseAmount) < savingAmount ){
-        alert("Not enough money to save!")
+        if((foodAmount+rentAmount+othersAmount) <= incomeAmount){
+            //Condition if  user has not enough money to save!
+            if((incomeAmount-totalExpenseAmount) > savingAmount){
+                // Replacing Expense Amount to HTML
+                totalExpenseBlock.innerText = totalExpenseAmount;
+
+                //Replacing Savings Amount To HTML
+                saveAmountBlock.innerText = savingAmount;
+
+                //Replacing Remaining avl Amount to HTML 
+                remainingAmountBlock.innerText = RemainingAvlAmount;
+            }else {
+                alert("Your have not money to save!")
+            }
+        }else {
+            alert("Your Expenses is more than your income!")
         }
     }else {
         alert("Fill up all filled with valid input!")
